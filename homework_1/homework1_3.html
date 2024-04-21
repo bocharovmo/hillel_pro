@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 1.3</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt("Введите 5 значное число");
+      if (num.length == 5) {
+        console.log(num);
+        console.log(num.length);
+      } else {
+        let num = prompt(
+          "Вы ввели не 5 значное число. Пожалуйста, введите 5 значное число"
+        );
+        console.log(num);
+        console.log(num.length);
+      }
+
+      let x1 = num % 10;
+      let x2 = Math.trunc((num / 10) % 10);
+      let x3 = Math.trunc((num / 100) % 10);
+      let x4 = Math.trunc((num / 1000) % 10);
+      let x5 = Math.trunc(num / 10000);
+
+      console.log(x5, x4, x3, x2, x1);
+      alert(`Ваше число: ${x5} ${x4} ${x3} ${x2} ${x1}`);
+    </script>
+  </body>
+</html>
