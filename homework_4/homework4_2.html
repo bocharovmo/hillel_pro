@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 4.2</title>
+  </head>
+  <body>
+    <script>
+      const num = prompt("Введіть 3х значне число");
+
+      let x = Math.trunc(num / 100);
+      let y = Math.trunc((num / 10) % 10);
+      let z = Math.trunc(num % 10);
+
+      console.log(x, y, z);
+
+      let result = x == y && x == z;
+
+      switch (result) {
+        case true:
+          alert(`Ви ввели: ${x} ${y} ${z}.
+          Всі цифри однакові: ${x} = ${y} = ${z}`);
+          break;
+        case false:
+          alert(`Ви ввели: ${x} ${y} ${z}.
+          Всі цифри не є однакові: ${x} ${y} ${z}`);
+          let result1 = x == y;
+          let result2 = x == z;
+          let result3 = y == z;
+          console.log(result1, typeof result1);
+          console.log(result2, typeof result2);
+          console.log(result3, typeof result3);
+      }
+      if (x == y) {
+        alert(
+          `Ви ввели: ${x} ${y} ${z}.
+          Всі цифри не є однакові, але однаковими є перша та друга цифра: ${x} = ${y}`
+        );
+      }
+      if (x == z) {
+        alert(
+          `Ви ввели: ${x} ${y} ${z}.
+          Всі цифри не є однакові, але однаковими є перша та третя цифра: ${x} = ${z}`
+        );
+      }
+      if (y == z) {
+        alert(
+          `Ви ввели: ${x} ${y} ${z}.
+          Всі цифри не є однакові, але однаковими є друга та третя цифра: ${y} = ${z}`
+        );
+      }
+    </script>
+  </body>
+</html>
