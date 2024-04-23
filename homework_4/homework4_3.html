@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 4.3</title>
+  </head>
+  <body>
+    <script>
+      const yearOfBirth = prompt("В якому році Ви народились?");
+      let age = 2024 - +yearOfBirth;
+      console.log(age);
+
+      if (yearOfBirth === null) {
+        alert(`Шкода, що Ви не захотіли вводити свій рік народження`);
+      } else {
+      }
+
+      const city = prompt("В якому місті Ви живете?");
+      if (city === null) {
+        alert(`Шкода, що Ви не захотіли вказати місто в якому живете`);
+      } else {
+        var cityLowerCase = city.toLowerCase();
+      }
+      console.log(cityLowerCase, typeof cityLowerCase);
+
+      switch (cityLowerCase) {
+        case "київ":
+          var country = "України";
+          break;
+        case "лондон":
+          var country = "Великобританії";
+          break;
+        case "вашингтон":
+          var country = "Сполучених Штатів";
+          break;
+        default:
+          break;
+      }
+
+      const sport = prompt("Який Ваш улюблений вид спорту?");
+
+      if (sport === null) {
+        alert(`Шкода, що Ви не захотіли вказати Ваш улюблений вид спорту`);
+      } else {
+        var sportLowerCase = sport.toLowerCase();
+        if (sportLowerCase === "бокс") {
+          var sportsman = "Александр Усик";
+        } else if (sportLowerCase === "баскетбол") {
+          var sportsman = "Майкл Джордан";
+        } else if (sportLowerCase === "футбол") {
+          var sportsman = "Лионель Месси";
+        } else {
+          var sportsman = null;
+        }
+        switch (cityLowerCase) {
+          case "київ":
+            if ((sportLowerCase = "бокс")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "баскетбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "футбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else {
+              alert(`Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            }
+            break;
+          case "лондон":
+            if ((sportLowerCase = "бокс")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "баскетбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "футбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else {
+              alert(`Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            }
+            break;
+          case "вашингтон":
+            if ((sportLowerCase = "бокс")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "баскетбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else if ((sportLowerCase = "футбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            } else {
+              alert(`Вам ${age} років.
+                Ви живете у столиці ${country}`);
+            }
+            break;
+          case undefined:
+            if ((sportLowerCase = "бокс")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви не вказали де живете`);
+            } else if ((sportLowerCase = "баскетбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви не вказали де живете`);
+            } else if ((sportLowerCase = "футбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви не вказали де живете`);
+            } else {
+              alert(`Вам ${age} років.
+              Ви не вказали де живете`);
+            }
+            break;
+          default:
+            if ((sportLowerCase = "бокс")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у ${city}`);
+            } else if ((sportLowerCase = "баскетбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у ${city}`);
+            } else if ((sportLowerCase = "футбол")) {
+              alert(`Круто! Хочеш стати ${sportsman}?
+                Вам ${age} років.
+                Ви живете у ${city}`);
+            } else {
+              alert(`Вам ${age} років.
+              Ви живете у ${city}`);
+            }
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
