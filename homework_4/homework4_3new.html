@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 4.3</title>
+  </head>
+  <body>
+    <script>
+      const yearOfBirth = prompt("В якому році Ви народились?");
+      let ageCalc = 2024 - +yearOfBirth;
+      let age;
+      console.log(age);
+      if (yearOfBirth === null) {
+        alert(`Шкода, що Ви не захотіли вводити свій рік народження.`);
+      } else {
+        age = `Вам ${ageCalc} років.`;
+      }
+
+      const city = prompt("В якому місті Ви живете?");
+      let city2;
+      if (city === null) {
+        alert(`Шкода, що Ви не захотіли вказати місто в якому живете`);
+      } else {
+        let cityLowerCase = city.toLowerCase();
+        if (cityLowerCase === "київ") {
+          city2 = "Ви живете в столиці України.";
+        } else if (cityLowerCase === "лондон") {
+          city2 = "Ви живете в столиці Великобританії.";
+        } else if (cityLowerCase === "вашингтон") {
+          city2 = "Ви живете в столиці Сполучених Штатів.";
+        } else {
+          city2 = `Ви живете в місті ${city}`;
+        }
+      }
+      console.log(city2);
+
+      const sport = prompt("Який Ваш улюблений вид спорту?");
+      let sportsman;
+      if (sport === null) {
+        alert(`Шкода, що Ви не захотіли вказати Ваш улюблений вид спорту`);
+      } else {
+        let sportLowerCase = sport.toLowerCase();
+        if (sportLowerCase === "бокс") {
+          sportsman = "Круто! Хочеш стати Олександром Усиком?";
+        } else if (sportLowerCase === "баскетбол") {
+          sportsman = "Круто! Хочеш стати Майклом Джорданом?";
+        } else if (sportLowerCase === "футбол") {
+          sportsman = "Круто! Хочеш стати Ліонелем Мессі?";
+        } else {
+          sportsman = null;
+        }
+      }
+
+      switch (true) {
+        case Boolean(sportsman):
+          alert(`${sportsman}
+          ${city2}
+          ${age}`);
+          break;
+        default:
+          alert(`${city2}
+          ${age}`);
+          break;
+      }
+      console.log(sportsman);
+      console.log(Boolean(sportsman));
+    </script>
+  </body>
+</html>
