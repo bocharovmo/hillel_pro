@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 6.1</title>
+  </head>
+  <body>
+    <script>
+      let str = prompt("Введіть текст, що потрібно відредагувати");
+      let symbols;
+      do {
+        symbols = prompt(
+          "Введіть 2 символи, що потрібно видалити через пропуск"
+        );
+        switch (symbols) {
+          case null:
+            symbols = prompt(
+              "Ви не ввели символи, що потрібно видалити. Будь ласка, введіть 2 символи, що потрібно видалити через пропуск"
+            );
+            break;
+          case symbols.length > 3:
+            symbols = prompt(
+              "Ви ввели більше ниж 2 символи. Будь ласка, введіть 2 символи, що потрібно видалити через пропуск"
+            );
+            break;
+          default:
+            break;
+        }
+      } while (
+        symbols === null ||
+        symbols === undefined ||
+        symbols.length > 3 ||
+        symbols === ""
+      );
+      console.log(symbols);
+
+      function deleteSymbols(text, deleted) {
+        let textLow = text.toLowerCase();
+        let deletedLow = deleted.toLowerCase();
+        let strLength = text.length;
+        let deletedObj = [deletedLow[0], deletedLow[2]];
+        let x;
+        let strNew = "";
+
+        for (x = 0; x < strLength; x += 1) {
+          if (textLow[x] === deletedObj[0] || textLow[x] === deletedObj[1]) {
+            strNew += "";
+          } else {
+            strNew += text[x];
+          }
+        }
+        return strNew;
+      }
+      let newStr = deleteSymbols(str, symbols);
+      alert(`Я видалив з вашого рядку ${str} наступні символи: ${symbols}.
+      Ось, що з цього вийшло: ${newStr}`);
+    </script>
+  </body>
+</html>
