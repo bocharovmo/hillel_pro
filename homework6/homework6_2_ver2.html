@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 6.2</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        1,
+        "apple",
+        undefined,
+        "$",
+        false,
+        4,
+        true,
+        18,
+        null,
+        "cactus",
+      ];
+
+      function sumNumber(array) {
+        let x;
+        let sum = 0;
+        for (x = 0; x < 10; x += 1) {
+          if (Number.isFinite(array[x])) {
+            sum += array[x];
+          } else {
+          }
+        }
+        return sum;
+      }
+
+      console.log(sumNumber(arr));
+    </script>
+  </body>
+</html>
