@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 6.3</title>
+  </head>
+  <body>
+    <script>
+      const array = [1, 3, 4, 6, 2, 5, 7];
+
+      function removeElement(array, item) {
+        let x = 0;
+        let searchIndex;
+        let arrLength = array.length;
+        do {
+          if (array[x] === item) {
+            searchIndex = x;
+          } else {
+          }
+          x = x + 1;
+        } while (x < arrLength);
+        let removedElement = array.splice(searchIndex, 1);
+        return array;
+      }
+
+      console.log(array);
+      console.log(removeElement(array, 4));
+    </script>
+  </body>
+</html>
