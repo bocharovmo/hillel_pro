@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 7.1</title>
+  </head>
+  <body>
+    <script>
+      function sum(x) {
+        let sum = 0;
+        return function (x) {
+          sum = sum + x;
+          console.log(sum);
+          return sum;
+        };
+      }
+      const sumNew = sum();
+      sumNew(2);
+      sumNew(10);
+      sumNew(21);
+      sumNew(-37);
+    </script>
+  </body>
+</html>
