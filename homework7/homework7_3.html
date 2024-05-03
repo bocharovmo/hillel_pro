@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 7.2</title>
+  </head>
+  <body>
+    <script>
+      function inputNumber() {
+        let counter;
+        let numExit;
+        let num = prompt("Введіть число більше 100");
+        for (counter = 1; counter < 10; counter++) {
+          isNumber = +num;
+          switch (true) {
+            case num > 100:
+              numExit = num;
+              return numExit;
+              break;
+            case isNaN(isNumber):
+              numExit = num;
+              return numExit;
+              break;
+            default:
+              num = prompt(
+                "Ви ввели число меньше 100, або нічого. Будь ласка, введіть число більше 100"
+              );
+              break;
+          }
+        }
+        return num;
+      }
+
+      const number = inputNumber();
+      console.log(number);
+    </script>
+  </body>
+</html>
