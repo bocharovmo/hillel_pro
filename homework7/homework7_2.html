@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 7.2</title>
+  </head>
+  <body>
+    <script>
+      function multiply(a) {
+        console.log(a);
+        return (b) => {
+          return a * b;
+        };
+      }
+      console.log(multiply(2)(10));
+      console.log(multiply(2)(30));
+
+      const multiplyTen = multiply(10);
+      console.log(multiplyTen(8));
+      console.log(multiplyTen(3));
+
+      const multiplyTenFive = multiplyTen(5);
+      console.log(multiplyTenFive);
+    </script>
+  </body>
+</html>
