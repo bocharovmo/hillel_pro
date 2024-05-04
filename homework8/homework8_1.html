@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 8.1</title>
+  </head>
+  <body>
+    <script>
+      let ladder = {
+        stairs: 0,
+        up: function () {
+          this.stairs++;
+          return this;
+        },
+        down: function () {
+          this.stairs--;
+          return this;
+        },
+        showStep: function () {
+          console.log(this.stairs);
+          return this;
+        },
+      };
+
+      ladder.up().up().up().down().showStep();
+    </script>
+  </body>
+</html>
