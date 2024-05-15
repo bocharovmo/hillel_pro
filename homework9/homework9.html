@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 9</title>
+  </head>
+  <body>
+    <script>
+      let company = {
+        sales: [
+          { name: "John", salary: 1000 },
+          { name: "Alice", salary: 600 },
+        ],
+        development: {
+          web: [
+            { name: "Peter", salary: 2000 },
+            { name: "Alex", salary: 1000 },
+          ],
+          internals: [{ name: "Jack", salary: 1300 }],
+        },
+      };
+
+      function calc(x) {
+        let sum = 0;
+        for (key in x) {
+          if (Array.isArray(x[key])) {
+            let arrayLength = x[key].length;
+            for (let y = 0; y < arrayLength; y++) {
+              sum += x[key][y].salary;
+            }
+          } else {
+            return sum + calc(x[key]);
+          }
+        }
+        return sum;
+      }
+
+      console.log(calc(company));
+    </script>
+  </body>
+</html>
