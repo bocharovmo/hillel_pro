@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 10.3</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        book: [
+          { name: "Jake", mobile: +380971111, email: "Jake1@gmail.com" },
+          { name: "Kate", mobile: +380971112, email: "Kate2@gmail.com" },
+          { name: "Mike", mobile: +380971113, email: "Mike3@gmail.com" },
+          { name: "John", mobile: +380971114, email: "John4@gmail.com" },
+          { name: "Bob", mobile: +380971115, email: "Bob5@gmail.com" },
+          { name: "Marly", mobile: +380971116, email: "Marly6@gmail.com" },
+        ],
+        search: function (name) {
+          if (name === undefined) {
+            name = prompt("Кого знайти?");
+          }
+          let x = this.book.filter(function (x) {
+            if (x.name === name) {
+              return x;
+            }
+          });
+          if (x[0] === undefined) {
+            return "Не знайдено";
+          }
+          return x[0];
+        },
+
+        add: function (name, mobile, email) {
+          this.book.push({ name, mobile, email });
+        },
+      };
+
+      obj.add("Grag", +380971117, "Grag@gmail.com");
+      obj.add("Olga", +380971118, "Olga@gmail.com");
+      console.log(obj.search());
+    </script>
+  </body>
+</html>
