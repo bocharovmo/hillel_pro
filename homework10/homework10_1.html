@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 10.1</title>
+  </head>
+  <body>
+    <script>
+      function User(name, age, cityLive) {
+        this.name = name;
+        this.age = age;
+        this.cityLive = cityLive;
+
+        this.getInfo = function () {
+          console.log(
+            `Ім'я = ${this.name}, вік = ${this.age}, місце проживання = ${this.cityLive}`
+          );
+        };
+      }
+
+      const user1 = new User("Jake", 29, "Kyiv");
+      user1.getInfo();
+      const user2 = new User("Mike", 18, "Lviv");
+      user2.getInfo();
+    </script>
+  </body>
+</html>
