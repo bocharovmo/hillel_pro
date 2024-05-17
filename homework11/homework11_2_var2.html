@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 11.2</title>
+  </head>
+  <body>
+    <div class="main">
+      <p class="text" id="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi saepe
+        veritatis animi, quos labore sunt culpa odit cumque explicabo rerum
+        quasi ducimus impedit dignissimos magnam dolores esse, iusto consectetur
+        nostrum!
+      </p>
+      <button class="btn" id="btn">Смени цвет</button>
+    </div>
+    <script>
+      let text = document.getElementById("text");
+      let btn = document.getElementById("btn");
+      let textComputedStyle = getComputedStyle(text);
+      let colorText = textComputedStyle.color;
+
+      btn.addEventListener("click", function () {
+        if (colorText === "rgb(0, 0, 0)") {
+          text.style.color = "red";
+          colorText = "black";
+        } else {
+          text.style.color = "black";
+          colorText = "rgb(0, 0, 0)";
+        }
+      });
+    </script>
+  </body>
+</html>
