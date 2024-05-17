@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 12.2</title>
+  </head>
+  <style>
+    .container {
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .parent {
+      margin-top: 300px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="parent" id="parent">
+        <button class="btn" id="btn1">Кнопка 1</button>
+        <button class="btn" id="btn2">Кнопка 2</button>
+        <button class="btn" id="btn3">Кнопка 3</button>
+      </div>
+    </div>
+    <script>
+      const parent = document.getElementById("parent");
+
+      parent.addEventListener("click", function (e) {
+        switch (true) {
+          case e.target.id === "btn1":
+            alert("Клікнуто на кнопку: Кнопка 1");
+            break;
+          case e.target.id === "btn2":
+            alert("Клікнуто на кнопку: Кнопка 2");
+            break;
+          case e.target.id === "btn3":
+            alert("Клікнуто на кнопку: Кнопка 3");
+            break;
+          default:
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
