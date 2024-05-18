@@ -27,21 +27,8 @@
     </div>
     <script>
       const parent = document.getElementById("parent");
-
       parent.addEventListener("click", function (e) {
-        switch (true) {
-          case e.target.id === "btn1":
-            alert("Клікнуто на кнопку: Кнопка 1");
-            break;
-          case e.target.id === "btn2":
-            alert("Клікнуто на кнопку: Кнопка 2");
-            break;
-          case e.target.id === "btn3":
-            alert("Клікнуто на кнопку: Кнопка 3");
-            break;
-          default:
-            break;
-        }
+        alert(`Клікнуто на кнопку: ${e.target.innerText}`);
       });
     </script>
   </body>
