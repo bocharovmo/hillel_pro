@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 11.1</title>
+    <style>
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .td {
+        border: 1px solid black;
+      }
+      .diagonal {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main" id="main"></div>
+    </div>
+    <script>
+      const main = document.getElementById("main");
+      const table = document.createElement("table");
+
+      function createTable() {
+        main.appendChild(table);
+        console.log("Table ready");
+      }
+      function createTr() {
+        for (let x = 0; x < 11; x++) {
+          const tr = document.createElement("tr");
+          table.appendChild(tr);
+          createTd();
+
+          function createTd() {
+            for (let y = 0; y < 11; y++) {
+              const td = document.createElement("td");
+              tr.appendChild(td);
+              td.className = "td";
+              if (x === y) {
+                td.className = "diagonal";
+              }
+              let result = x === 0 ? y : x * y;
+              if (result === 0 && y === 0) {
+                result = x;
+              }
+              td.textContent = result;
+            }
+          }
+        }
+        console.log("TR ready");
+      }
+      createTable();
+      createTr();
+    </script>
+  </body>
+</html>
