@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 12.3</title>
+    <style>
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+      .main {
+        background-color: rgb(228, 136, 136);
+        padding: 5px 0px 20px 0px;
+      }
+      .main_list {
+        padding-inline-start: 0px;
+      }
+      .main-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        row-gap: 20px;
+        column-gap: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <ul class="main_list" id="list"></ul>
+        <div class="main-form">
+          <input type="text" id="input" /><button id="btn">Додати</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const btn = document.getElementById("btn");
+      const ul = document.getElementById("list");
+      btn.addEventListener("click", function () {
+        const input = document.getElementById("input");
+        let inputText = input.value;
+        console.log(inputText);
+        createItem();
+
+        function createItem() {
+          let newLi = document.createElement("li");
+          let newP = document.createElement("p");
+          let newBtn = document.createElement("button");
+          newLi.className = "item";
+          newBtn.textContent = `Видалити`;
+          newBtn.className = "btn_delete";
+          newP.textContent = `${inputText}`;
+          ul.appendChild(newLi);
+          newLi.appendChild(newP);
+          newLi.appendChild(newBtn);
+        }
+
+        document.getElementById("input").value = "";
+      });
+      ul.addEventListener("click", function (e) {
+        let btnGroup = document.getElementsByClassName("btn_delete");
+        for (item = 0; item < btnGroup.length; item++) {
+          if (btnGroup[item] === e.target) {
+            ul.removeChild(e.target.parentElement);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
