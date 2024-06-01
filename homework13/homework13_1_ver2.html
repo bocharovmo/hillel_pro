@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classwork 13</title>
+    <style>
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+      }
+      .error {
+        margin: 0px;
+        margin-top: -10px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" class="form" id="form">
+        <h2>We would lik to hep you</h2>
+        <input type="text" placeholder="Name" name="name" />
+        <input type="text" placeholder="Message" name="message" />
+        <p>How to answer you?</p>
+        <input type="text" placeholder="Phone number" name="number" />
+        <input type="text" placeholder="Email" name="email" />
+        <button type="submit" id="btn">Send message</button>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("form");
+
+      form.addEventListener("change", function () {
+        const targetChange = event.target.name;
+        allChecker(targetChange);
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData1 = new FormData(form);
+        for (x of formData1) {
+          allChecker(x[0]);
+          console.log(x[0], ":", x[1]);
+        }
+      });
+
+      function allChecker(x) {
+        const message = document.getElementById(`${x}`);
+        if (message === null) {
+        } else {
+          message.remove();
+          form[x].style.color = "black";
+        }
+        const regex = [
+          /^.{1,}$/,
+          /^.{5,}$/,
+          /^\+380/,
+          /[0-9]*[a-z]*\@[0-9]*[a-z]*\.[a-z]*/i,
+        ];
+        const text = [
+          "Поле не должно быть пустым",
+          "Сообщение должно содержать больше 5 символов.",
+          "Номер должен начинаться с +380",
+          "Email должен содержать @ и .",
+        ];
+        let y;
+        if (x === "name") {
+          y = 0;
+        } else if (x === "message") {
+          y = 1;
+        } else if (x === "number") {
+          y = 2;
+        } else if (x === "email") {
+          y = 3;
+        }
+        if (!regex[y].test(form[y].value)) {
+          form[y].insertAdjacentHTML(
+            "afterend",
+            `<p class='error' id='${x}'>${text[y]}</p>`
+          );
+          form[y].style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
