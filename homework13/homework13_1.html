@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classwork 13</title>
+    <style>
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+      }
+      .error {
+        margin: 0px;
+        margin-top: -10px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" class="form" id="form">
+        <h2>We would lik to hep you</h2>
+        <input type="text" placeholder="Name" name="name" />
+        <input type="text" placeholder="Message" name="message" />
+        <p>How to answer you?</p>
+        <input type="text" placeholder="Phone number" name="number" />
+        <input type="text" placeholder="Email" name="email" />
+        <button type="submit" id="btn">Send message</button>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("form");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        nameChecker();
+        messageChecker();
+        numberChecker();
+        emailChecker();
+        const formData1 = new FormData(form);
+        for (x of formData1) {
+          console.log(x[0], ":", x[1]);
+        }
+      });
+
+      function nameChecker() {
+        const message = document.getElementById("error0");
+        if (message === null) {
+        } else {
+          message.remove();
+        }
+        const regex0 = /^.{1,}$/;
+        const str0 = form[0].value;
+        if (!regex0.test(str0)) {
+          form[0].insertAdjacentHTML(
+            "afterend",
+            "<p class='error' id='error0'>Поле не должно быть пустым.</p>"
+          );
+        }
+      }
+
+      form[0].addEventListener("change", function () {
+        nameChecker();
+      });
+
+      function messageChecker() {
+        const message = document.getElementById("error1");
+        if (message === null) {
+        } else {
+          message.remove();
+          form[1].style.color = "black";
+        }
+        const regex1 = /^.{5,}$/;
+        const str1 = form[1].value;
+        if (!regex1.test(str1)) {
+          form[1].insertAdjacentHTML(
+            "afterend",
+            "<p class='error' id='error1'>Сообщение должно содержать больше 5 символов.</p>"
+          );
+          form[1].style.color = "red";
+        }
+      }
+
+      form[1].addEventListener("change", function () {
+        messageChecker();
+      });
+
+      function numberChecker() {
+        const message = document.getElementById("error2");
+        if (message === null) {
+        } else {
+          message.remove();
+          form[2].style.color = "black";
+        }
+        const regex2 = /^'+380'/;
+        const regex2NumbersOfNumber = /^.{13}$/;
+        const str2 = form[2].value;
+        if (!regex2.test(str2) && !regex2NumbersOfNumber.test(str2)) {
+          form[2].insertAdjacentHTML(
+            "afterend",
+            "<p class='error' id='error2'>Номер должен начинаться с +380 и состоять из 9 цифр после кода.</p>"
+          );
+          form[2].style.color = "red";
+        }
+      }
+
+      form[2].addEventListener("change", function () {
+        numberChecker();
+      });
+
+      function emailChecker() {
+        const message = document.getElementById("error3");
+        if (message === null) {
+        } else {
+          message.remove();
+          form[3].style.color = "black";
+        }
+        const str3 = form[3].value;
+        const regex3 = /[0-9]*[a-z]*\@[0-9]*[a-z]*\.[a-z]*/i;
+        if (!regex3.test(str3)) {
+          form[3].insertAdjacentHTML(
+            "afterend",
+            "<p class='error' id='error3'>Email должен содержать @ и .</p>"
+          );
+          form[3].style.color = "red";
+        }
+      }
+
+      form[3].addEventListener("change", function () {
+        emailChecker();
+      });
+    </script>
+  </body>
+</html>
