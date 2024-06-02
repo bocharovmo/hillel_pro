@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Num(num = 6) {
+        this.num = num;
+        this.checkNumber = function (num = this.num) {
+          if (this.num < 0) {
+            console.log("Error!");
+            return false;
+          } else {
+            return true;
+          }
+        };
+      }
+
+      function Calc(num = 6) {
+        Num.call(this, num);
+
+        this.getSum = function (num = this.num) {
+          const isValid = this.checkNumber;
+          if (isValid && num <= 0) return num;
+
+          return num + this.getSum(num - 1);
+        };
+
+        this.getFactorial = function (num = this.num) {
+          const isValid = this.checkNumber;
+          if (isValid && num <= 1) return num;
+
+          return num * this.getFactorial(num - 1);
+        };
+
+        this.getDegree = function (num = this.num, pow = 2) {
+          const isValid = this.checkNumber;
+          if (isValid && pow === 1) return num;
+
+          return num ** pow;
+        };
+
+        this.getFibonacci = function (value = this.num) {
+          const isValid = this.checkNumber;
+          if (!isValid || value <= 1) return value;
+
+          return this.getFibonacci(value - 1) + this.getFibonacci(value - 2);
+        };
+      }
+      const number1 = new Calc();
+      console.log(number1.getSum());
+      console.log(number1.getFactorial());
+      console.log(number1.getDegree(3, 3));
+      console.log(number1.getFibonacci(3));
+
+      let array1 = [0, "dfsfd", 2];
+      let ark = { name: "Jhon", voice: "fik", number: 10 };
+      console.log(typeof array1);
+      console.log(typeof ark);
+      console.log(array1.length);
+      console.log(ark.length);
+    </script>
+  </body>
+</html>
