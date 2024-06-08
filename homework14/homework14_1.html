@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 14.1</title>
+    <style>
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 20px;
+      }
+      .slider_dot {
+        display: inline-block;
+        margin: 0 10px;
+        width: 10px;
+        height: 10px;
+        border: 2px solid grey;
+        background-color: grey;
+        border-radius: 50%;
+        outline: none;
+      }
+      .slider_dot_active {
+        border: 2px solid rgb(54, 53, 53);
+        background-color: rgb(54, 53, 53);
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="main" id="main">
+          <button id="btn-left">Prev</button>
+          <img src="2.jpg" alt="#" id="img" />
+          <button id="btn-right">Next</button>
+        </div>
+        <div class="slider-block" id="slider-block">
+          <a href="#" id="slider1" class="slider_dot"></a>
+          <a href="#" id="slider2" class="slider_dot slider_dot_active"></a>
+          <a href="#" id="slider3" class="slider_dot"></a>
+          <a href="#" id="slider4" class="slider_dot"></a>
+          <a href="#" id="slider5" class="slider_dot"></a>
+          <a href="#" id="slider6" class="slider_dot"></a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const main = document.getElementById("main");
+      const img = document.getElementById("img");
+      const left = document.getElementById("btn-left");
+      const right = document.getElementById("btn-right");
+      const sliderBlock = document.getElementById("slider-block");
+      const sliders = document.getElementsByClassName("slider_dot");
+
+      function checkerNum() {
+        let count = +img.src[33];
+        if (count === 1) {
+          left.style.visibility = "hidden";
+          right.style.visibility = "visible";
+        } else if (count === 6) {
+          right.style.visibility = "hidden";
+          left.style.visibility = "visible";
+        } else {
+          left.style.visibility = "visible";
+          right.style.visibility = "visible";
+        }
+        return count;
+      }
+      function changeImg() {
+        let count = +img.src[33];
+        if (event.target === left) {
+          count = --count;
+          img.src = `http://127.0.0.1:5500/homework14/${count}.jpg`;
+        } else if (event.target === right) {
+          count = ++count;
+          img.src = `http://127.0.0.1:5500/homework14/${count}.jpg`;
+        }
+      }
+      checkerNum();
+
+      sliderBlock.addEventListener("click", function () {
+        let count = img.src[33];
+        sliders[count - 1].classList.remove("slider_dot_active");
+        let eventTargetId = event.target.id;
+        let countDot = eventTargetId[6];
+        let newActiveDot = document.getElementById(`slider${countDot}`);
+        newActiveDot.classList.add("slider_dot_active");
+        img.src = `http://127.0.0.1:5500/homework14/${countDot}.jpg`;
+        changeImg();
+        checkerNum();
+      });
+
+      main.addEventListener("click", function () {
+        let countPrev = img.src[33];
+        console.log(countPrev);
+        changeImg();
+        checkerNum();
+        let count = img.src[33];
+        console.log(count);
+        sliders[countPrev - 1].classList.remove("slider_dot_active");
+        sliders[count - 1].classList.add("slider_dot_active");
+      });
+    </script>
+  </body>
+</html>
