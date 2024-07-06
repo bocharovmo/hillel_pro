@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 16.1</title>
+  </head>
+  <body>
+    <script>
+      function Student(name, lastName, yearOfBirth) {
+        this.name = name;
+        this.lastName = lastName;
+        this.yearOfBirth = yearOfBirth;
+        this.presence = new Array(25);
+        this.grades = new Array(10);
+        this.getAge = function () {
+          const currentDate = new Date();
+          const currentYear = currentDate.getFullYear();
+          const age = currentYear - this.yearOfBirth;
+          console.log(`Вік ${this.name} = ${age}`);
+        };
+        this.gpa = function () {
+          let sum = 0;
+          for (let x = 0; x < 10; x++) {
+            sum += this.grades[x];
+          }
+          return sum / 10;
+        };
+        this.getGpa = function () {
+          console.log(`Середній бал ${this.name} = ${this.gpa()}`);
+        };
+        this.present = function (x) {
+          if (x > 25) {
+            return;
+          }
+          this.presence[x - 1] = "true";
+        };
+        this.absent = function (x) {
+          if (x > 25) {
+            return;
+          }
+          this.presence[x - 1] = "false";
+        };
+        this.percentOfPresents = function () {
+          let sum = 0;
+          for (let x = 0; x < 25; x++) {
+            if (this.presence[x] === "true") {
+              sum += 1;
+            }
+          }
+          const percent = sum / 25;
+          return percent;
+        };
+        this.summary = function () {
+          const gpa = this.gpa();
+          const presents = this.percentOfPresents();
+          if (gpa >= 90 && presents >= 0.9) {
+            console.log("Молодець!");
+          } else if (gpa >= 90 || presents >= 0.9) {
+            console.log("Добре, але можна краще ");
+          } else {
+            console.log("Редиска!");
+          }
+        };
+      }
+
+      const student1 = new Student("John", "Betty", 1998);
+      student1.present(1);
+      student1.present(2);
+      student1.present(3);
+      student1.present(4);
+      student1.present(5);
+      student1.present(6);
+      student1.present(7);
+      student1.present(8);
+      student1.present(9);
+      student1.present(10);
+      student1.present(11);
+      student1.present(12);
+      student1.present(13);
+      student1.present(14);
+      student1.present(15);
+      student1.present(16);
+      student1.present(17);
+      student1.present(18);
+      student1.present(19);
+      student1.present(20);
+      student1.present(21);
+      student1.present(22);
+      student1.absent(23);
+      student1.absent(24);
+      student1.present(25);
+      student1.present(77);
+      student1.grades = [100, 90, 80, 100, 95, 86, 100, 99, 91, 93];
+      student1.getAge();
+      student1.getGpa();
+      student1.summary();
+
+      const student2 = new Student("Ann", "Woods", 1996);
+      student2.present(1);
+      student2.present(2);
+      student2.present(3);
+      student2.present(4);
+      student2.present(5);
+      student2.present(6);
+      student2.present(7);
+      student2.present(8);
+      student2.present(9);
+      student2.present(10);
+      student2.present(11);
+      student2.present(12);
+      student2.present(13);
+      student2.present(14);
+      student2.present(15);
+      student2.present(16);
+      student2.present(17);
+      student2.present(18);
+      student2.present(19);
+      student2.present(20);
+      student2.present(21);
+      student2.present(22);
+      student2.absent(23);
+      student2.absent(24);
+      student2.present(25);
+      student2.absent(99);
+      student2.grades = [70, 88, 80, 97, 95, 86, 100, 99, 91, 93];
+      student2.getAge();
+      student2.getGpa();
+      student2.summary();
+
+      const student3 = new Student("Kate", "Glades", 2001);
+      student3.present(1);
+      student3.present(2);
+      student3.present(3);
+      student3.present(4);
+      student3.present(5);
+      student3.present(6);
+      student3.present(7);
+      student3.absent(8);
+      student3.present(9);
+      student3.absent(10);
+      student3.present(11);
+      student3.present(12);
+      student3.present(13);
+      student3.present(14);
+      student3.present(15);
+      student3.present(16);
+      student3.present(17);
+      student3.present(18);
+      student3.present(19);
+      student3.present(20);
+      student3.present(21);
+      student3.present(22);
+      student3.absent(23);
+      student3.absent(24);
+      student3.present(25);
+      student3.present(26);
+      student3.getAge();
+      student3.grades = [100, 88, 80, 97, 95, 86, 60, 71, 91, 93];
+      student3.getGpa();
+      student3.summary();
+    </script>
+  </body>
+</html>
